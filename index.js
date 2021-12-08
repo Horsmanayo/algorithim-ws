@@ -1,28 +1,36 @@
-let sentence = 'my very heart may just ;ovr gertility'
-
-
-
+let sentence = 'my very heart may just live under the ninth planet'
 
 
 function countSentence(text){
-    let result = {
-      sentenceLength: 0,
-      noOfWords: 0,
-      vowelCount: 0,
+    
+    let sentenceLength = 0
+    let noOfWords = 1
+    let vowelCount = 0
+
+    let charMap = {
+        a: 'a',
+        e: 'e',
+        i: 'i',
+        o: 'o',
+        u: 'u'
     }
     
-    result.sentenceLength = text.length
+    
+    sentenceLength = text.length
     
     for(let i = 0; i < text.length; i++){
       if (text[i] == ' ' || text[i] == '.'){
-        result.noOfWords += 1
+        noOfWords += 1
+      }
+      if(text[i] in charMap){
+          ++vowelCount
       }
     }
+    return {sentenceLength, noOfWords, vowelCount}
     
-    
-    let newSentence = Array.from(text.toLowerCase())
-    result.vowelCount = newSentence.filter(letter => 'aeiou'.includes(letter)).length
-    return result
+    // let newSentence = Array.from(text.toLowerCase())
+    // vowelCount = newSentence.filter(letter => 'aeiou'.includes(letter)).length
+    // return result
     
     }
     
